@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
-import 'controllers/speedTestController.dart';
+import 'package:flutter/services.dart';
+import 'controllers/SpeedTestController.dart';
+import 'screens/HomeScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -15,13 +26,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
       title: 'SpeedTest',
       debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: Center(
-            child: Text('SpeedTest app'),
-          ),
+        home: const Homescreen()
+
+
   ),
-        ),
-    );
+        );
+
 
 
   }

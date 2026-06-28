@@ -11,7 +11,7 @@ enum TestPhase {
   error,
 }
 //change notifier (every widget that is watching the controller gets told to rebuild itself)
-class SpeedTestApp extends ChangeNotifier{
+class SpeedTestController extends ChangeNotifier{
   final Speedtestservice _service = Speedtestservice();
   TestPhase _phase = TestPhase.idle;
   double _currentSpeed = 0.0;
@@ -29,7 +29,7 @@ double get ping => _ping;
 double get downloadSpeed => _downloadSpeed;
 double get uploadSpeed => _uploadSpeed;
 Testresults? get lastResult => _lastResults;
-String? get erroreMssage => _errorMessage;
+String? get errorMessage => _errorMessage;
 
   bool get isTesting =>
       _phase != TestPhase.idle &&
@@ -37,6 +37,7 @@ String? get erroreMssage => _errorMessage;
       _phase != TestPhase.error;
   bool get isIdle => _phase == TestPhase.idle;
   bool get hasError => _phase == TestPhase.error;
+  bool get isDone => _phase == TestPhase.done;
 
 //state updater
   void _update({
