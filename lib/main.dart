@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
       title: 'SpeedTest',
       debugShowCheckedModeBanner: false,
-        home: const Homescreen()
+        home: const HomeScreen()
 
 
   ),
